@@ -1,19 +1,17 @@
 import {
     IoMusicalNotesOutline,
     IoLogoTwitter,
-    IoLogoFacebook,
     IoLogoLinkedin,
     IoLogoGithub,
     IoLogoInstagram,
     IoLogoReddit,
     IoBarChartOutline,
     IoGlobeOutline,
-    IoMailOpenOutline
 } from 'react-icons/io5';
+import { TbFileFilled } from 'react-icons/tb';
 
 import './Links.scss';
 
-// ✅ Centralized Link + Icon Map
 const allLinks = [
     {
         label: 'Linkedin',
@@ -60,6 +58,15 @@ const allLinks = [
 const Links = () => {
     return (
         <div className="links-container">
+            <a
+                href="resume.pdf"
+                className="chip"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <TbFileFilled size={16} style={{ marginRight: '4px' }} />
+                Resume
+            </a>
             <div className="chip-grid">
                 {allLinks.map((item, idx) => (
                     <a

@@ -12,6 +12,9 @@ function App() {
         <p>{`< Engineer. Builder. Artisan. />`}</p>
       </div>
       <Links />
+      <div className='blog'>
+        <h1>Blog</h1>
+      </div>
     </div>
   )
 }

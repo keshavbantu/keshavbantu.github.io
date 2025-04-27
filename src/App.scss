@@ -20,6 +20,7 @@ html, body {
 
 a {
   color: #704214;
+  text-decoration: none;
 }
 
 .container {
@@ -55,5 +56,9 @@ a {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     font-weight: 500;
+  }
+  .blog {
+    padding: 16px;
+    font-size: 16px;
   }
 }
