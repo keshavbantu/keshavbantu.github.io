@@ -1,0 +1,40 @@
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.chip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+@media (min-width: 800px) {
+    .chip-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 2px;
+    background: #fdfefe;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    text-align: center;
+    min-height: 40px;
+}
+
+@media (max-width: 600px) {
+    .chip-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
