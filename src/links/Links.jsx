@@ -60,7 +60,7 @@ const Links = () => {
         <div className="links-container">
             <a
                 href="resume.pdf"
-                className="chip"
+                className="chip-padded"
                 target="_blank"
                 rel="noopener noreferrer"
             >
