@@ -14,8 +14,8 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   font-family: "Special Gothic Expanded One", sans-serif;
-  background-color: #faf6f1;
-  color: #2c1810;
+  background-color: #1a1a1a;
+  color: #e0d3c5;
   display: flex;
   flex-direction: column;
 }
@@ -25,12 +25,12 @@ body {
 }
 
 a {
-  color: #c17817;
+  color: #ffb86c;
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: #e69c2e;
+    color: #ffd8a8;
   }
 }
 
@@ -82,7 +82,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e8e0d5;
-    color: #5c4033;
+    background-color: #242424;
+    color: #a89b8c;
   }
 }
