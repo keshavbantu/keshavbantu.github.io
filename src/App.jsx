@@ -10,6 +10,7 @@ function App() {
   const [selectedPost, setSelectedPost] = useState(null);
 
   return (
+    <>
     <div className='container'>
       <div className='header'>
         <h1>Keshav Bantwal</h1>
@@ -23,13 +24,14 @@ function App() {
         <h1>Blog</h1>
       </div>
       <PostList onSelect={setSelectedPost} />
-      <div className='footer'>
-        {`> the brave shall inherit the earth`}
-      </div>
       <Modal open={!!selectedPost} onClose={() => setSelectedPost(null)} title={selectedPost?.title} date={selectedPost?.date}>
         {selectedPost && <PostViewer filename={selectedPost.path.replace(/\.md$/, '')} />}
       </Modal>
     </div>
+      <div className='footer'>
+      {`> the brave shall inherit the earth`}
+    </div>
+    </>
   )
 }
 
