@@ -8,13 +8,20 @@
 
 .chip-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
 @media (min-width: 800px) {
     .chip-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 600px) {
+    .chip-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -46,10 +53,4 @@
     transition: background 0.2s ease, transform 0.2s ease;
     text-align: center;
     min-height: 60px;
-}
-
-@media (max-width: 600px) {
-    .chip-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
 }

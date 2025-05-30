@@ -58,15 +58,6 @@ const allLinks = [
 const Links = () => {
     return (
         <div className="links-container">
-            <a
-                href="resume.pdf"
-                className="chip-padded"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <TbFileFilled size={16} style={{ marginRight: '4px' }} />
-                Resume
-            </a>
             <div className="chip-grid">
                 {allLinks.map((item, idx) => (
                     <a
