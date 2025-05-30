@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run generate-posts && vite",
+    "build": "npm run generate-posts && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
     "generate-posts": "node generatePostsJson.js"
   },
   "repository": {

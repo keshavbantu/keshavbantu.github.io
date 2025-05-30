@@ -24,7 +24,7 @@ function App() {
         <h1>Blog</h1>
       </div>
       <PostList onSelect={setSelectedPost} />
-      <Modal open={!!selectedPost} onClose={() => setSelectedPost(null)} title={selectedPost?.title} date={selectedPost?.date}>
+      <Modal open={!!selectedPost} onClose={() => setSelectedPost(null)} title={selectedPost?.title}>
         {selectedPost && <PostViewer filename={selectedPost.path.replace(/\.md$/, '')} />}
       </Modal>
     </div>
