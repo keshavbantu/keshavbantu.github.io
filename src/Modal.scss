@@ -14,13 +14,13 @@
 .modal-card {
   background: #1a1a1a;
   color: #e0d3c5;
-  border-radius: 32px;
+  border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  width: 90vw;
+  width: 90%;
   max-width: 600px;
   min-height: 60vh;
   max-height: 90vh;
-  padding: 32px 28px 0 28px;
+  padding: 24px 24px 0 24px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 
 .modal-title {
   font-family: 'Special Gothic Expanded One', sans-serif;
-  font-size: 1.6rem;
+  font-size: 24px;
   font-weight: bold;
   margin: 0 0 8px 0;
   line-height: 1.1;
@@ -39,7 +39,7 @@
 
 .modal-date {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 12px;
   color: #a89b8c;
   margin-bottom: 18px;
   margin-top: 0;
@@ -50,8 +50,13 @@
   font-size: 1.08rem;
   flex: 1 1 auto;
   overflow-y: auto;
-  padding-bottom: 90px; // space for close button
+  padding-bottom: 90px;
   color: #e0d3c5;
+}
+
+.modal-content .post p {
+  margin: 0 0 1.1em 0;
+  line-height: 1.6;
 }
 
 .modal-close {
