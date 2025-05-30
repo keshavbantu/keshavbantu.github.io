@@ -7,7 +7,8 @@
     "dev": "npm run generate-posts && vite",
     "build": "npm run generate-posts && vite build",
     "lint": "eslint .",
-    "generate-posts": "node generatePostsJson.js"
+    "generate-posts": "node generatePostsJson.js",
+    "deploy": "npm run build && cp -r dist/*"
   },
   "repository": {
     "type": "git",
