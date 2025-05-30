@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-posts": "node generatePostsJson.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   "author": "keshav bantwal",
   "license": "ISC",
   "dependencies": {
+    "marked": "^15.0.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0"

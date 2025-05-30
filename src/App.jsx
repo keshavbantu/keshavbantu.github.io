@@ -1,7 +1,12 @@
-import './App.scss'
+import { useState } from 'react';
 import Links from './links/Links'
+import PostList from './viewers/PostList'
+
+import './App.scss'
 
 function App() {
+  const [selectedPost, setSelectedPost] = useState(null);
+
   return (
     <div className='container'>
       <div className='header'>
@@ -14,6 +19,10 @@ function App() {
       <Links />
       <div className='blog'>
         <h1>Blog</h1>
+      </div>
+      <PostList onSelect={setSelectedPost} />
+      <div className='footer'>
+        {`> the brave shall inherit the earth`}
       </div>
     </div>
   )
