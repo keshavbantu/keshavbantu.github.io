@@ -1,4 +1,3 @@
-// PostList.jsx
 import { useEffect, useState } from 'react';
 import './PostList.scss';
 

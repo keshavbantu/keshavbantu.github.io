@@ -6,7 +6,6 @@ const Modal = ({ open, onClose, title, date, children }) => {
     <div className="modal-overlay">
       <div className="modal-card">
         {title && <h1 className="modal-title">{title}</h1>}
-        {date && <div className="modal-date">{date}</div>}
         <div className="modal-content">
           {children}
         </div>

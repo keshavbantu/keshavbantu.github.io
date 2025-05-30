@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(20, 20, 20, 0.85); // dark overlay
+  background: rgba(20, 20, 20, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,8 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   width: 90%;
   max-width: 600px;
-  min-height: 60vh;
+  height: 90vh;
+  min-height: 90vh;
   max-height: 90vh;
   padding: 20px 20px 0 20px;
   position: relative;
@@ -37,21 +38,22 @@
   color: #ffb86c;
 }
 
-.modal-date {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: #a89b8c;
-  margin-bottom: 18px;
-  margin-top: 0;
-}
-
 .modal-content {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
   font-family: 'Inter', sans-serif;
   font-size: 1.08rem;
-  flex: 1 1 auto;
-  overflow-y: auto;
-  padding-bottom: 90px;
+  padding-bottom: 100px;
   color: #e0d3c5;
+  a {
+    color: #3498db ;
+  }
+  img {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 .modal-content .post p {

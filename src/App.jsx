@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Links from './links/Links'
 import PostList from './viewers/PostList'
 import PostViewer from './viewers/PostViewer'
-import Modal from './Modal'
+import Modal from './modal/Modal'
 import './App.scss'
-import './Modal.scss'
+import './modal/Modal.scss'
 
 function App() {
   const [selectedPost, setSelectedPost] = useState(null);

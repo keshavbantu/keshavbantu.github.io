@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { marked } from 'marked';
 
 const extractTitleAndContent = (markdown) => {
-    // Try to extract first heading as title
     const lines = markdown.split('\n');
     let title = '';
     let content = markdown;
@@ -15,7 +14,6 @@ const extractTitleAndContent = (markdown) => {
         }
     }
     if (!title) {
-        // fallback: first non-empty line
         title = lines.find(line => line.trim() !== '') || '';
         content = lines.slice(1).join('\n');
     }
