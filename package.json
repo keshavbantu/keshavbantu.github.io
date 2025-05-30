@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
     "dev": "npm run generate-posts && vite",
     "build": "npm run generate-posts && vite build",
-    "lint": "eslint .",
     "generate-posts": "node generatePostsJson.js",
-    "deploy": "npm run build && cp -r dist/*"
+    "deploy": "npm run build && rm -rf !(dist|.git|.gitignore) && cp -r dist/* ."
   },
   "repository": {
     "type": "git",
