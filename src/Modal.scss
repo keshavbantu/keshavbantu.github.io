@@ -1,0 +1,81 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.85); // dark overlay
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #1a1a1a;
+  color: #e0d3c5;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  width: 90vw;
+  max-width: 600px;
+  min-height: 60vh;
+  max-height: 90vh;
+  padding: 32px 28px 0 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-title {
+  font-family: 'Special Gothic Expanded One', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: #ffb86c;
+}
+
+.modal-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #a89b8c;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+.modal-content {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.08rem;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-bottom: 90px; // space for close button
+  color: #e0d3c5;
+}
+
+.modal-close {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: #242424;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  font-size: 2rem;
+  color: #e0d3c5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, background 0.2s;
+  z-index: 2;
+}
+
+.modal-close:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.20);
+  background: #333;
+} 

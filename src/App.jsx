@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Links from './links/Links'
 import PostList from './viewers/PostList'
-
+import PostViewer from './viewers/PostViewer'
+import Modal from './Modal'
 import './App.scss'
+import './Modal.scss'
 
 function App() {
   const [selectedPost, setSelectedPost] = useState(null);
@@ -24,6 +26,9 @@ function App() {
       <div className='footer'>
         {`> the brave shall inherit the earth`}
       </div>
+      <Modal open={!!selectedPost} onClose={() => setSelectedPost(null)} title={selectedPost?.title} date={selectedPost?.date}>
+        {selectedPost && <PostViewer filename={selectedPost.path.replace(/\.md$/, '')} />}
+      </Modal>
     </div>
   )
 }

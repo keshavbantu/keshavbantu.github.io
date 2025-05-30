@@ -30,7 +30,7 @@ const PostList = ({ onSelect }) => {
                     const date = `${dateParts[0]}-${dateParts[1]}-${dateParts[2]}`;
                     return (
                         <li key={post.path} className="post-item">
-                            <button onClick={() => onSelect(post.path)}>
+                            <button onClick={() => onSelect({ path: post.path, title: post.title, date })}>
                                 <span className="post-date">{date}</span>
                                 <span className="post-title">{post.title}</span>
                                 <span className="post-preview">{post.preview}</span>
