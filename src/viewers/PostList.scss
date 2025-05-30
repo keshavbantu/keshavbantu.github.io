@@ -1,0 +1,75 @@
+.post-list {
+    padding-bottom: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .post-item {
+        margin: 8px 0;
+
+        button {
+            width: 100%;
+            background-color: #242424;
+            border: none;
+            color: #e0d3c5;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+            border: 1px solid #333333;
+
+            &:hover {
+                transform: translateY(-2px);
+                background-color: #2a2a2a;
+                box-shadow: rgba(255, 184, 108, 0.1) 0px 6px 16px;
+                border-color: #404040;
+            }
+
+            .post-date {
+                font-size: 12px;
+                color: #a89b8c;
+                font-weight: 400;
+            }
+
+            .post-title {
+                font-size: 18px;
+                font-family: "Special Gothic Expanded One", sans-serif;
+                font-weight: 600;
+                margin-top: 4px;
+                color: #ffb86c;
+            }
+
+            .post-preview {
+                font-size: 14px;
+                font-weight: 400;
+                color: #b8a99a;
+                margin-top: 6px;
+                max-height: 4.8em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.2em;
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    button {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 600px) {
+    button {
+    }
+}

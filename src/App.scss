@@ -1,0 +1,93 @@
+/* fonts
+font-family: "Special Gothic Expanded One", sans-serif;
+font-family: "Inter", sans-serif;
+font-weight: <weight>; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  background-color: #1a1a1a;
+  color: #e0d3c5;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1;
+}
+
+a {
+  color: #ffb86c;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #ffd8a8;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 16px;
+    margin-top: 24px;
+    h1 {
+      font-size: 50px;
+    }
+    p {
+      margin-top: -5px;
+      span {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        margin-right: 8px;
+      }
+      font-family: "Inter", sans-serif;
+      font-size: 2;
+      font-weight: 200;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+  }
+  .subtext {
+    margin-left: 16px;
+    margin-top: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .blog {
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+
+.footer {
+  margin-top: auto;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #242424;
+  color: #a89b8c;
+}
