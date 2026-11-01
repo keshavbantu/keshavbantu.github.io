@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "dev": "npm run generate-posts && vite",
-    "build": "npm run generate-posts && vite build",
+    "build": "npm run generate-posts && vite build && node generateSite.js",
     "generate-posts": "node generatePostsJson.js"
   },
   "repository": {

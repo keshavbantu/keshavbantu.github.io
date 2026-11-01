@@ -20,31 +20,29 @@ export function usePosts() {
     return posts;
 }
 
-// routes: '' (home), '#/log' (the library), '#/log/<slug>' (an entry in the reader), '#/projects'
-const subscribeHash = cb => {
-    window.addEventListener('hashchange', cb);
-    return () => window.removeEventListener('hashchange', cb);
+// Real paths give every page a distinct crawlable URL. The generated static HTML
+// makes direct requests work on GitHub Pages; history navigation keeps the app fast.
+const subscribeLocation = cb => {
+    window.addEventListener('popstate', cb);
+    window.addEventListener('site:navigate', cb);
+    return () => {
+        window.removeEventListener('popstate', cb);
+        window.removeEventListener('site:navigate', cb);
+    };
 };
 
 export function useRoute() {
-    const hash = useSyncExternalStore(subscribeHash, () => window.location.hash);
-    const match = hash.match(/^#\/log\/([\w-]+)/);
+    const pathname = useSyncExternalStore(subscribeLocation, () => window.location.pathname);
+    const match = pathname.match(/^\/blog\/([\w-]+)\/?$/);
     if (match) return { name: 'essay', slug: match[1] };
-    if (/^#\/log\/?$/.test(hash)) return { name: 'library' };
-    if (hash.startsWith('#/projects')) return { name: 'projects' };
+    if (/^\/blog\/?$/.test(pathname)) return { name: 'library' };
+    if (/^\/projects\/?$/.test(pathname)) return { name: 'projects' };
     return { name: 'home' };
 }
 
 export function navigate(href) {
-    const go = () => {
-        if (href === '#' || href === '') {
-            history.pushState(null, '', window.location.pathname);
-            window.dispatchEvent(new HashChangeEvent('hashchange'));
-        } else {
-            window.location.hash = href.replace(/^#/, '');
-        }
-    };
-    go();
+    history.pushState(null, '', href || '/');
+    window.dispatchEvent(new Event('site:navigate'));
 }
 
 export function formatDate(iso) {

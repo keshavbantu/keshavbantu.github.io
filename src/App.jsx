@@ -11,8 +11,8 @@ function App() {
   const route = useRoute();
   const posts = usePosts();
   const [active, setActive] = useState(null);
-  const close = useCallback(() => navigate('#'), []);
-  const toLibrary = useCallback(() => navigate('#/log'), []);
+  const close = useCallback(() => navigate('/'), []);
+  const toLibrary = useCallback(() => navigate('/blog/'), []);
   const post = route.name === 'essay' && posts?.find(p => p.slug === route.slug);
 
   return (

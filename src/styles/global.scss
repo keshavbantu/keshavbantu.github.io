@@ -126,6 +126,14 @@ ol {
   }
 }
 
+.circle-mark {
+  width: 9px;
+  height: 9px;
+  flex: none;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
 // three dots in an L, the site's mark for anything you can press
 .pix {
   display: inline-grid;

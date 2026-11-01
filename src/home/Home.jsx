@@ -45,9 +45,13 @@ const Home = ({ onPoint }) => {
             </header>
 
             <nav className="home__nav" aria-label="Sections">
-                <a className="chip" href="#/projects" onClick={e => open(e, '#/projects')}>
+                <a className="chip" href="/projects/" onClick={e => open(e, '/projects/')}>
                     <span className="pix" aria-hidden="true"><i /><i /><i /><i /></span>
                     Projects
+                </a>
+                <a className="chip" href="/resume.pdf" download>
+                    <span className="circle-mark" aria-hidden="true" />
+                    Resume
                 </a>
             </nav>
 
@@ -56,8 +60,8 @@ const Home = ({ onPoint }) => {
                 {latest && (
                     <a
                         className="entry"
-                        href={`#/log/${latest.slug}`}
-                        onClick={e => open(e, `#/log/${latest.slug}`)}
+                        href={`/blog/${latest.slug}/`}
+                        onClick={e => open(e, `/blog/${latest.slug}/`)}
                         onPointerEnter={() => onPoint(posts.length - 1)}
                         onPointerLeave={() => onPoint(null)}
                         onFocus={() => onPoint(posts.length - 1)}
@@ -71,7 +75,7 @@ const Home = ({ onPoint }) => {
                         <span className="entry__excerpt">{latest.excerpt}</span>
                     </a>
                 )}
-                <a className="chip home__library" href="#/log" onClick={e => open(e, '#/log')}>
+                <a className="chip home__library" href="/blog/" onClick={e => open(e, '/blog/')}>
                     <span className="pix" aria-hidden="true"><i /><i /><i /><i /></span>
                     Blog
                     <span className="home__count tnum">{String(posts.length).padStart(2, '0')}</span>

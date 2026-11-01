@@ -14,7 +14,7 @@ const Library = ({ posts, onClose }) => {
 
     const open = (e, slug) => {
         e.preventDefault();
-        navigate(`#/log/${slug}`);
+        navigate(`/blog/${slug}/`);
     };
 
     return (
@@ -28,7 +28,7 @@ const Library = ({ posts, onClose }) => {
             <ol className="library__shelf" ref={track.ref} {...track.handlers}>
                 {posts.map(post => (
                     <li key={post.slug}>
-                        <a className="book" href={`#/log/${post.slug}`} onClick={e => open(e, post.slug)} draggable="false">
+                        <a className="book" href={`/blog/${post.slug}/`} onClick={e => open(e, post.slug)} draggable="false">
                             <span className={`book__cover ${post.cover ? '' : 'is-engraving'}`} aria-hidden="true">
                                 <img
                                     src={post.cover?.src || engraving.src}

@@ -58,6 +58,8 @@
 // ---------- the way out ----------
 .home__nav {
   grid-area: nav;
+  display: flex;
+  gap: 8px;
   justify-self: end;
   align-self: start;
 }
