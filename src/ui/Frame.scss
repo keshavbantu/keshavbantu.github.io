@@ -1,0 +1,25 @@
+.frame {
+  position: fixed;
+  inset: var(--frame);
+  pointer-events: none;
+  z-index: 2;
+
+  svg {
+    display: block;
+    overflow: visible;
+  }
+}
+
+.frame__dots {
+  fill: none;
+  stroke: var(--faint);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 0 7;
+}
+
+.frame__corner {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}

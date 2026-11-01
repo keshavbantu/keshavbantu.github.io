@@ -1,0 +1,41 @@
+.wordmark {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  font-family: var(--dots);
+  font-size: 8vw; // replaced by the fitted size once measured
+  line-height: 0.82;
+  user-select: none;
+  overflow-x: clip;
+}
+
+.wordmark__line {
+  display: flex;
+  white-space: nowrap;
+  padding-top: 0.02em;
+
+  &+& {
+    margin-top: 0.08em;
+  }
+}
+
+.wordmark__l {
+  display: inline-block;
+  flex: none;
+  text-align: center;
+  font-variation-settings: "wght" 760;
+}
+
+// fixed and emptied after measuring, so it can never add scroll
+.wordmark__probe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-200vw);
+  visibility: hidden;
+  white-space: pre;
+  font-family: var(--dots);
+  font-size: 1000px;
+  line-height: 1;
+  pointer-events: none;
+}

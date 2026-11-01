@@ -1,0 +1,371 @@
+// one screen inside the frame: who at top left, the way out at top right,
+// links bottom left, the log bottom right, the river in between
+.home {
+  position: relative;
+  z-index: 1;
+  height: 100svh;
+  min-height: 600px;
+  padding: calc(var(--frame) + var(--pad));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto minmax(24px, 1fr) auto auto;
+  grid-template-areas:
+    "id nav"
+    ". ."
+    "links log"
+    "bar bar";
+  pointer-events: none;
+
+  a,
+  button,
+  p,
+  h1,
+  h2,
+  figure {
+    pointer-events: auto;
+  }
+}
+
+// ---------- who ----------
+.home__id {
+  grid-area: id;
+  min-width: 0;
+  width: clamp(240px, min(34vw, 52svh), 600px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+
+  h1 {
+    margin-bottom: 14px;
+    min-width: 0;
+  }
+}
+
+.home__alias {
+  color: var(--dim);
+
+  span {
+    color: var(--ink);
+  }
+}
+
+.home__tag {
+  span {
+    color: var(--sodium);
+  }
+}
+
+// ---------- the way out ----------
+.home__nav {
+  grid-area: nav;
+  justify-self: end;
+  align-self: start;
+}
+
+// ---------- labels over the two lists ----------
+.home__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--dim);
+  font-size: var(--step-tiny);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  // a dotted leader that runs to the column's edge
+  &::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: radial-gradient(circle, var(--faint) 1px, transparent 1.4px) 0 50% / 6px 2px repeat-x;
+  }
+}
+
+// ---------- the log ----------
+.home__log {
+  --c: 12px;
+  grid-area: log;
+  justify-self: end;
+  width: min(100%, 460px);
+  align-self: end;
+  padding: 18px 20px 18px;
+  // frosted glass over the river, so the titles read whatever the water is doing
+  background: rgba(5, 9, 11, 0.42);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  clip-path: polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+
+}
+
+
+.entry__excerpt {
+  color: var(--dim);
+  font-size: var(--step-small);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home__library {
+  margin-top: 10px;
+}
+
+.home__count {
+  color: var(--dim);
+}
+
+.entry {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px 16px;
+  margin-inline: -16px;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: background-color 0.3s;
+
+  &:is(a):hover,
+  &:is(a):focus-visible {
+    background: rgba(255, 138, 42, 0.1);
+
+    .entry__title {
+      color: var(--sodium);
+    }
+  }
+}
+
+.entry__date {
+  display: flex;
+  justify-content: space-between;
+  color: var(--dim);
+  font-size: var(--step-tiny);
+}
+
+.entry__title {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: var(--step-title);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  transition: color 0.25s;
+}
+
+
+// ---------- elsewhere ----------
+.home__links {
+  grid-area: links;
+  align-self: end;
+  width: min(100%, 300px);
+
+  ul {
+    display: grid;
+    gap: 0;
+  }
+
+  a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: clamp(1px, 0.4svh, 4px) 0;
+    font-size: var(--step-body);
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--sodium);
+
+      .home__dot {
+        background: var(--sodium);
+        transform: scale(1.6);
+      }
+
+      .home__handle {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+}
+
+.home__dot {
+  flex: none;
+  width: 4px;
+  height: 4px;
+  align-self: center;
+  background: var(--faint);
+  transition: transform 0.25s var(--ease-out), background-color 0.2s;
+}
+
+.home__handle {
+  margin-left: auto;
+  color: var(--dim);
+  font-size: var(--step-tiny);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s, transform 0.35s var(--ease-out);
+}
+
+// ---------- the bottom bar ----------
+.home__bar {
+  grid-area: bar;
+  margin: calc(var(--pad) * 0.8) calc(var(--pad) * -1) calc(var(--pad) * -1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  color: var(--dim);
+  font-size: var(--step-tiny);
+  letter-spacing: 0.04em;
+  background:
+    radial-gradient(circle, var(--faint) 1px, transparent 1.4px) 0 0 / 7px 2px repeat-x;
+}
+
+.home__cell {
+  padding: 14px var(--pad);
+
+  &--motto {
+    text-align: right;
+  }
+}
+
+
+// ---------- short desktop windows: links in two columns ----------
+@media (min-width: 761px) and (max-height: 700px) {
+  .home__links {
+    width: min(100%, 380px);
+
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 24px;
+    }
+  }
+
+  .home__handle {
+    display: none;
+  }
+}
+
+// ---------- phone: the river shows through a window between who and the log ----------
+@media (max-width: 760px) {
+  .home {
+    height: auto;
+    min-height: 100svh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(80px, 1fr) auto auto auto;
+    grid-template-areas:
+      "nav"
+      "id"
+      "."
+      "log"
+      "links"
+      "bar";
+  }
+
+  .home__nav {
+    margin-bottom: 14px;
+  }
+
+  .home__id {
+    width: 100%;
+    gap: 6px;
+
+    h1 {
+      margin-bottom: 8px;
+    }
+  }
+
+  .home__label {
+    margin-bottom: 8px;
+  }
+
+  .entry {
+    padding-block: 10px;
+  }
+
+  .home__log {
+    width: 100%;
+    justify-self: stretch;
+    padding: 12px 16px 14px;
+  }
+
+
+  .home__links {
+    width: 100%;
+    margin-top: 16px;
+
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+      row-gap: 0;
+    }
+
+    a {
+      font-size: var(--step-small);
+    }
+  }
+
+  .home__handle {
+    display: none;
+  }
+
+  .home__bar {
+    margin-top: 16px;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+
+    .home__cell:first-child {
+      white-space: nowrap;
+    }
+  }
+
+  .entry__excerpt {
+    display: none;
+  }
+
+  // the library chip moves up into the heading row
+  .home__log {
+    position: relative;
+  }
+
+  .home__log .home__library {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    margin: 0;
+    padding: 7px 12px;
+  }
+
+  .home__log .home__label::after {
+    margin-right: 120px;
+  }
+
+  .home__cell {
+    padding-block: 12px;
+  }
+
+}
+
+// short phones: a smaller name and denser links; a short scroll beats text over the log
+@media (max-width: 760px) and (max-height: 800px) {
+  .home {
+    grid-template-rows: auto auto minmax(56px, 1fr) auto auto auto;
+  }
+
+  .home__id h1 {
+    width: 80%;
+  }
+
+  .home__links ul {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .home__bar {
+    font-size: 0.6875rem;
+    letter-spacing: 0;
+  }
+
+  .home__cell {
+    padding-block: 10px;
+  }
+}

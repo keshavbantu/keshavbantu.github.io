@@ -1,0 +1,162 @@
+.library .popover__panel {
+  padding: 22px 0 20px;
+  height: min(620px, calc(100svh - 2 * var(--frame) - 16px));
+}
+
+.library__head {
+  padding: 0 clamp(20px, 4vw, 64px);
+  display: grid;
+  gap: 8px;
+
+  h2 {
+    color: var(--dim);
+    font-size: var(--step-tiny);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 34px;
+
+    span {
+      margin-left: 8px;
+      color: var(--ink);
+    }
+  }
+
+  p {
+    font-size: var(--step-title);
+  }
+}
+
+
+// the shelf
+.library__shelf {
+  flex: 1;
+  min-height: 0;
+  margin-top: 26px;
+  padding: 0 clamp(20px, 4vw, 64px);
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: clamp(20px, 4vw, 64px);
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  li {
+    flex: none;
+    width: min(300px, 74vw);
+    scroll-snap-align: start;
+  }
+}
+
+.book {
+  --c: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(230, 239, 233, 0.04);
+  clip-path: polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+  transition: background-color 0.3s, transform 0.4s var(--ease-out);
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(255, 138, 42, 0.1);
+
+    .book__title {
+      color: var(--sodium);
+    }
+
+    .book__read {
+      background: var(--sodium);
+      color: var(--sodium-ink);
+    }
+
+    .book__cover img {
+      transform: scale(1.08);
+    }
+
+    .book__cover:not(.is-engraving) img {
+      filter: grayscale(0) contrast(1.05) brightness(0.95);
+    }
+  }
+}
+
+// the top of each card is the post's picture
+.book__cover {
+  position: relative;
+  height: 42%;
+  min-height: 120px;
+  overflow: hidden;
+  background: var(--night);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.1) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 1.2s var(--ease-out), filter 0.6s;
+  }
+
+  // the default engraving is printed in light on the dark card, like the reader's cover
+  &.is-engraving img {
+    object-position: 50% 30%;
+    filter: grayscale(1) invert(1) contrast(1.6) brightness(0.9);
+    mix-blend-mode: screen;
+  }
+}
+
+.book__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 16px 16px;
+}
+
+.book__title {
+  font-weight: 500;
+  font-size: var(--step-title);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  transition: color 0.25s;
+}
+
+.book__excerpt {
+  color: var(--dim);
+  font-size: var(--step-small);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book__foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--dim);
+  font-size: var(--step-tiny);
+}
+
+.book__read {
+  padding: 6px 10px;
+  color: var(--ink);
+  background: rgba(230, 239, 233, 0.08);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.25s, color 0.25s;
+}

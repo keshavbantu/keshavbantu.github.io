@@ -1,0 +1,48 @@
+.pager {
+  margin-top: 20px;
+  padding: 0 clamp(20px, 4vw, 64px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.pager__count {
+  color: var(--ink);
+  justify-self: center;
+  white-space: nowrap;
+  font-size: var(--step-small);
+
+  span {
+    color: var(--dim);
+  }
+}
+
+.pager__turn {
+  justify-self: end;
+  display: flex;
+  gap: 10px;
+
+  .chip:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .pager {
+    column-gap: 12px;
+  }
+
+  .pager__count {
+    justify-self: start;
+  }
+
+  .pager__turn {
+    gap: 8px;
+
+    .chip {
+      padding-inline: 14px;
+    }
+  }
+}
